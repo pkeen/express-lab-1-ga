@@ -13,8 +13,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // simple route
+// redirect from / to animals
 app.get('/', (req, res) => {
-    res.send('<h1>Hello world</h1>');
+    res.redirect('/animals');
 });
 
 // animals index
@@ -23,6 +24,7 @@ app.get('/animals', (req, res) => {
         animals: animals.getAnimals()
     })
 })
+
 
 // animal show
 app.get('/animals/:id', (req, res) => {
